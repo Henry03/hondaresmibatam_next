@@ -64,6 +64,14 @@ export default function CarDetailClient ({carData, lowestPrice}) {
         }
     }, [carData]);
 
+    useEffect(() => {
+        import('flyonui/dist/index.js').then(() => {
+            if (window.HSStaticMethods?.autoInit) {
+                window.HSStaticMethods.autoInit();
+            }
+        });
+    }, []);
+
     return (
         <div className='mt-2 mb-5 my-10 mx-5 lg:mx-10'>
             <div className="grid md:grid-cols-2 gap-6">
