@@ -1,7 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
-import logo from "@/../public/icon.ico";
-import hondaLogo from "@/../public/honda_logo.png";
 import '@/app/globals.css'
 
 export const metadata = {
@@ -16,6 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="id" data-theme="maintheme">
+            <head>
+              <link rel="icon" href="/icon.ico" sizes="any" />
+            </head>
             <body>
                 {children}
             </body>

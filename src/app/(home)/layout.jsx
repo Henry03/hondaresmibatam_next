@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           <div className="flex items-center justify-between">
             <div className="navbar-start items-center justify-between w-full">
               <Link href="/" className="flex gap-2 items-center">
-                <img src={hondaLogo.src} className="h-7" alt="Honda Logo" />
+                <Image src={hondaLogo} className="h-7" alt="Honda Logo" />
                 <div className="divider md:divider-horizontal"></div>
                 <div className="text-base-content text-xl font-bold no-underline whitespace-nowrap hidden md:block">
                   Honda Batam Sri Heryanti
@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
         <footer className="footer xl:max-w-7xl mx-auto justify-items-center md:justify-items-normal">
           <aside className="gap-6 lg:px-24">
             <div className="flex items-center gap-2 text-xl font-bold text-base-content">
-              <img alt="Honda Logo" src={logo.src} />
+              <Image alt="Honda Logo" src={logo} />
               <span>Dealer Honda Batam</span>
             </div>
             <p className="text-base-content text-sm">
