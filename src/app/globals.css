@@ -1,26 +1,60 @@
 @import "tailwindcss";
+@plugin "flyonui";
+@import "../../node_modules/flyonui/variants.css";
+@source "../../node_modules/flyonui/dist/index.js";
+@plugin "@iconify/tailwind4";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "flyonui/theme" {
+  name: "maintheme";
+  default: true; /* Set as default theme */
+  prefersdark: false; /* Set dark mode for prefers-color-scheme: dark */
+  color-scheme: light; /* Defines the color of browser UI */
+
+  --color-base-100: oklch(98.8% 0.004 24.6);     /* Very light background */
+  --color-base-200: oklch(92% 0.012 24.6);
+  --color-base-300: oklch(50% 0.020 24.6);
+  --color-base-content: oklch(32% 0.07 24.6);     /* Text on light bg */
+
+  --color-primary: oklch(0.6 0.2232 24.6);        /* Your new desired primary */
+  --color-primary-content: oklch(98% 0.01 24.6);  /* Text on primary */
+
+  --color-secondary: oklch(0.53 0.08 44.6);       /* Muted orange-brown */
+  --color-accent: oklch(0.63 0.18 65);            /* Golden-yellow accent */
+  --color-accent-content: oklch(98% 0.01 65);     /* Text on accent */
+
+  --color-neutral: oklch(30% 0.05 24.6);          /* For neutral UI blocks */
+  --color-neutral-content: oklch(98% 0.01 24.6);
+
+  --color-info: oklch(0.72 0.12 240);             /* Cool blue info color */
+  --color-info-content: oklch(98% 0.01 240);
+
+  --color-success: oklch(0.72 0.15 145);          /* Leafy green */
+  --color-success-content: oklch(98% 0.01 145);
+
+  --color-warning: oklch(0.75 0.18 80);           /* Warm yellow-orange */
+  --color-warning-content: oklch(98% 0.01 80);
+
+  --color-error: oklch(0.65 0.18 25);             /* Deep red-orange to match harmony */
+  --color-error-content: oklch(98% 0.01 25);
+
+  /* Border Radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* Base Sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border Size */
+  --border: 1px;
+
+  /* Effects */
+  --depth: 1;
+  --noise: 0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
