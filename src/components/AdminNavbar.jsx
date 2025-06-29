@@ -17,7 +17,7 @@ export default function AdminNavbar ({name}) {
     useEffect(() => {
         import('flyonui/dist/index.js').then(() => {
             if (window.HSStaticMethods?.autoInit) {
-            window.HSStaticMethods.autoInit();
+                window.HSStaticMethods.autoInit();
             }
         });
     }, []);
