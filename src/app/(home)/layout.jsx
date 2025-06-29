@@ -3,6 +3,7 @@ import '@/app/globals.css'
 import logo from '@/../public/icon.ico'
 import hondaLogo from '@/../public/honda_logo.png'
 import Script from 'next/script'
+import Image from 'next/image'
 
 export default function RootLayout({ children }) {
   return (
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
           <div className="flex items-center justify-between">
             <div className="navbar-start items-center justify-between w-full">
               <Link href="/" className="flex gap-2 items-center">
-                <Image src={hondaLogo} className="h-7" alt="Honda Logo" />
+                <Image src={hondaLogo} className="h-7 w-fit" alt="Honda Logo" />
                 <div className="divider md:divider-horizontal"></div>
                 <div className="text-base-content text-xl font-bold no-underline whitespace-nowrap hidden md:block">
                   Honda Batam Sri Heryanti
