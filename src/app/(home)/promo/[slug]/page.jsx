@@ -1,4 +1,5 @@
 import { BreadcrumbSchema, fetchItem, formatDate } from "@/lib/ServerUtils";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
@@ -51,7 +52,7 @@ export default async function PromoDetail ({params}){
                 <div className="md:sticky md:top-20 md:self-start w-full overflow-hidden">
                     {
                     promoData.mediaType == 'IMAGE' ?
-                    <img
+                    <Image width={1000} height={1000} 
                         loading='lazy'
                         src={promoData.mediaUrl}
                         alt="Promo"

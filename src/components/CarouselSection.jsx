@@ -38,7 +38,7 @@ export default function CarouselSection ({data}) {
                 controls
                 src={item.mediaUrl}
               /> :
-              <Image width={600} height={300}  src={item.mediaUrl} loading='lazy' alt={ `Slide ${index + 1}`} className="object-cover h-full w-full" />
+              <Image width={800} height={500}  src={item.mediaUrl} loading='lazy' alt={ `Slide ${index + 1}`} className="object-cover h-full w-full" />
             }
           </a>
         ))}
