@@ -1,5 +1,6 @@
 import { toRupiah } from "@/lib/ServerUtils";
 import Carousel from "./Carousel";
+import Image from "next/image";
 
 export default function CarSection ({data}) {
   return (
@@ -7,11 +8,11 @@ export default function CarSection ({data}) {
       {
         data.map((item, index) =>(
           <div
-            className="snap-center shrink-0 w-80 sm:w-96 flex flex-col items-center"
+            className="snap-center shrink-0 w-72 sm:w-96 flex flex-col items-center"
             key={"car_" + item.id}
           >
             <span className="self-center text-lg w-full select-none">
-              <figure><img loading='lazy' className='rounded-2xl pointer-events-none' src={item.mediaFiles?.[0]?.url} alt="Carousel" /></figure>
+              <figure><Image width={400} height={400}  loading='lazy' className='rounded-2xl pointer-events-none' src={item.mediaFiles?.[0]?.url} alt="Carousel" /></figure>
               <div className="card-body p-4">
                 <h5 className="card-title text-lg md:text-xl">{item.name}</h5>
                 <div className='flex gap-2'>

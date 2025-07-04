@@ -48,7 +48,7 @@ export default function AboutMeClient ({certificates}) {
                         {
                         certificates.map((item, index) => (
                             item.type === 'IMAGE' ? (
-                                <img key={index} src={item.url} alt="Preview" className="w-full object-cover" />
+                                <Image width={300} height={300}  key={index} src={item.url} alt="Preview" className="w-full object-cover" />
                             ) : (
                                 <video key={index} src={item.url} controls className="w-full object-cover" />
                             )

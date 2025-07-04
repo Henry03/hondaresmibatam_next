@@ -3,6 +3,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import { toRupiah } from "./Utils";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function CommentSection ({data}) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -36,7 +37,7 @@ export default function CommentSection ({data}) {
                 <div key={"comment_" + item.id} className="keen-slider__slide px-2">
                   <div className="rounded-xl w-full h-full">
                     <figure className='rounded-xl w-full'>
-                      <img loading='lazy' className='w-full h-60 md:h-96 rounded-xl object-cover' src={item.imageUrl} alt="Testimoni" />
+                      <Image width={300} height={300}  loading='lazy' className='aspect-[16/9] w-full rounded-xl object-cover' src={item.imageUrl} alt="Testimoni" />
                     </figure>
                     <div className="card-body">
                       <blockquote className="relative p-4">

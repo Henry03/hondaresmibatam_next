@@ -1,6 +1,7 @@
 'use client';
 
 import { useKeenSlider } from "keen-slider/react";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function CarouselSection ({data}) {
@@ -37,7 +38,7 @@ export default function CarouselSection ({data}) {
                 controls
                 src={item.mediaUrl}
               /> :
-              <img src={item.mediaUrl} loading='lazy' alt={ `Slide ${index + 1}`} className="object-cover h-full w-full" />
+              <Image width={600} height={300}  src={item.mediaUrl} loading='lazy' alt={ `Slide ${index + 1}`} className="object-cover h-full w-full" />
             }
           </a>
         ))}

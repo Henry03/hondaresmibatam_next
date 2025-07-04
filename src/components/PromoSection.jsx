@@ -1,5 +1,6 @@
 import { formatDate } from "@/lib/ServerUtils";
 import Carousel from "./Carousel";
+import Image from "next/image";
 
 export default function PromoSection ({data}) {
     return (
@@ -7,13 +8,13 @@ export default function PromoSection ({data}) {
         {
           data.map((item, index) =>(
             <div
-              className="snap-center shrink-0 w-80 sm:w-96 flex flex-col items-center"
+              className="snap-center shrink-0 w-72 sm:w-96 flex flex-col items-center"
               key={"promo_" + item.id}
             >
               <span className="self-center text-lg w-full select-none">
                 <figure>
-                  <img
-                    className="rounded-2xl max-h-96 w-full object-cover pointer-events-none"
+                  <Image width={400} height={400}  
+                    className="rounded-2xl w-full object-cover pointer-events-none"
                     src={item.mediaUrl}
                     loading='lazy'
                     alt="Promo"
