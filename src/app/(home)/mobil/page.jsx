@@ -25,6 +25,8 @@ export const metadata = {
   robots: "index, follow"
 };
 
+export const revalidate = 60;
+
 export default async function Mobil() {
   const carData = await safeFetch(() => axiosInstance.get('/api/v1/cars/list'));
   const tagData = await safeFetch(() => axiosInstance.get('/api/v1/tags'));
