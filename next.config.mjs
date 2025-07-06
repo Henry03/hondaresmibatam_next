@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    allowedDevOrigins: ['hondabatamresmi.com'],
+    allowedDevOrigins: ['hondabatamresmi.com', 'localhost:4000'],
     images: {
         remotePatterns: [
             {
@@ -13,6 +13,12 @@ const nextConfig = {
             {
                 protocol: 'http',
                 hostname: 'hondabatamresmi.com',
+                pathname: '/uploads/**',
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '4000',
                 pathname: '/uploads/**',
             },
         ],

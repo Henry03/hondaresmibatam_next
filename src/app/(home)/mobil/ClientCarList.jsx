@@ -56,7 +56,7 @@ export default function ClientCarList({ cars, tags }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10 mx-5 lg:mx-10">
                 {filteredCars.map((car) => (
                     <div key={car.id} className="card sm:max-w-sm">
-                    <figure><Image width={300} height={300} loading='lazy' className='rounded-2xl' src={car.mediaFiles[0].url} alt="Car" /></figure>
+                    <figure><Image width={300} height={300} loading='lazy' className='rounded-2xl' src={car.mediaFiles[0]?.url} alt="Car" /></figure>
                         <div className="card-body p-4">
                         <h5 className="card-title">{car.name}</h5>
                         <div className='flex flex-wrap gap-2'>

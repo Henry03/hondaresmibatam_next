@@ -2,7 +2,8 @@ import axios from 'axios'
 import Cookies from 'js-cookie';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://hondabatamresmi.com/',
+  // baseURL: 'https://hondabatamresmi.com/',
+  baseURL: 'http://localhost:3000/',
 })
 
 axiosInstance.interceptors.request.use(

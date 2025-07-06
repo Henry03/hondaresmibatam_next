@@ -54,8 +54,10 @@ export default function CarEditor({ id, carData, tagData }) {
       formData.append(`variants[${index}][name]`, variant.name);
       formData.append(`variants[${index}][price]`, variant.price);
     });
-    mediaFiles.forEach((item) => {
+    mediaFiles.forEach((item, index) => {
       formData.append('media', item.file);
+      formData.append(`mediaIsCover[]`, item.isCover)
+      formData.append(`mediaOrder[]`, index + 1)
     });
 
     const toastId = toast.loading('Creating new car...');
@@ -86,11 +88,15 @@ export default function CarEditor({ id, carData, tagData }) {
       formData.append(`variants[${index}][name]`, variant.name);
       formData.append(`variants[${index}][price]`, variant.price);
     });
-    mediaFiles.forEach((item) => {
+    mediaFiles.forEach((item, index) => {
       if (item.id) {
-        formData.append('mediaFiles[]', item.id);
+        formData.append(`mediaFiles[]`, item.id);
+        formData.append(`mediaFilesIsCover[]`, item.isCover)
+        formData.append(`mediaFilesOrder[]`, index + 1)
       } else {
-        formData.append('media', item.file);
+        formData.append(`media`, item.file);
+        formData.append(`mediaIsCover[]`, item.isCover)
+        formData.append(`mediaOrder[]`, index + 1)
       }
     });
 
@@ -339,14 +345,14 @@ export default function CarEditor({ id, carData, tagData }) {
             </div>
             <div className="divider divider-neutral mx-5"></div>
             <div className='mt-3'>
-            <label className="label-text" htmlFor="mediaField"> Media (Image/Video) </label>
-            <div className={`textarea ${errors?.media && "is-invalid"}`} id='mediaField'>
-                <MediaUploader files={mediaFiles} setFiles={setMediaFiles}/>
-            </div>
-            {
-                errors?.media &&
-                <span className="helper-text">{errors.media[0]}</span>
-            }
+              <label className="label-text" htmlFor="mediaField"> Media (Image/Video) </label>
+              <div className={`textarea ${errors?.media && "is-invalid"}`} id='mediaField'>
+                  <MediaUploader files={mediaFiles} setFiles={setMediaFiles} cover={true}/>
+              </div>
+              {
+                  errors?.media &&
+                  <span className="helper-text">{errors.media[0]}</span>
+              }
             </div>
             <div className='mt-3'>
             <label className="label-text" htmlFor="variantField"> Variant </label>
