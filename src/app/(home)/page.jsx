@@ -8,6 +8,7 @@ import CommentSection from '@/components/CommentSection';
 import CarSection from '@/components/CarSection';
 import CarouselSection from '@/components/CarouselSection';
 import { BreadcrumbSchema } from '@/components/Utils';
+import Link from 'next/link';
 
 export const metadata = {
   title: "Honda Resmi Batam | Promo Mobil Honda & Layanan Personal",
@@ -51,7 +52,7 @@ export default async function Home() {
         <div className='my-10 mx-5 lg:mx-10'>
           <div className='flex justify-between items-center mb-5'>
             <h3 className='text-2xl font-medium'>Daftar Mobil</h3>
-            <button className="btn btn-text btn-primary">Lihat semua</button>
+            <Link href={'/mobil'} className="btn btn-text btn-primary">Lihat semua</Link>
           </div>
           <CarSection data={carData}/>
         </div>
