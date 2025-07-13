@@ -1,7 +1,7 @@
-import axiosInstance from "@/lib/axiosInstance"
 import { safeFetch } from "@/lib/fetchData"
 import { BreadcrumbSchema } from "@/lib/ServerUtils";
 import AboutMeClient from "./AboutMeClient";
+import axiosLocalInstance from "@/lib/axiosLocalInstance";
 
 export const metadata = {
   title: "Sri Heryanti | Sales Resmi Honda Batam",
@@ -28,7 +28,7 @@ export const metadata = {
 export const revalidate = 60;
 
 export default async function AboutMe() {
-    const certificateData = await safeFetch(() => axiosInstance.get('/api/v1/certificates'));
+    const certificateData = await safeFetch(() => axiosLocalInstance.get('/api/v1/certificates'));
 
     return (
         <>
