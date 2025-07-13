@@ -1,7 +1,7 @@
 import { BreadcrumbSchema } from '@/components/Utils';
-import axiosInstance from '@/lib/axiosInstance';
 import { safeFetch } from '@/lib/fetchData';
 import ClientCarList from './ClientCarList';
+import axiosLocalInstance from '@/lib/axiosLocalInstance';
 
 export const metadata = {
   title: "Daftar Mobil Honda | Pilihan Lengkap di Honda Batam",
@@ -28,8 +28,8 @@ export const metadata = {
 export const revalidate = 60;
 
 export default async function Mobil() {
-  const carData = await safeFetch(() => axiosInstance.get('/api/v1/cars/list'));
-  const tagData = await safeFetch(() => axiosInstance.get('/api/v1/tags'));
+  const carData = await safeFetch(() => axiosLocalInstance.get('/api/v1/cars/list'));
+  const tagData = await safeFetch(() => axiosLocalInstance.get('/api/v1/tags'));
   
   return (
     <>
