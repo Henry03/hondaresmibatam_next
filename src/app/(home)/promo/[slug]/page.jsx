@@ -1,3 +1,5 @@
+import axiosInstance from "@/lib/axiosInstance";
+import { safeFetch } from "@/lib/fetchData";
 import { BreadcrumbSchema, fetchItem, formatDate } from "@/lib/ServerUtils";
 import Image from "next/image";
 import { notFound } from "next/navigation";

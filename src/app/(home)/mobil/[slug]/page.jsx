@@ -1,6 +1,8 @@
 import { BreadcrumbSchema, fetchItem } from "@/lib/ServerUtils";
 import { notFound } from "next/navigation";
 import CarDetailClient from "./CarDetailClient";
+import { safeFetch } from "@/lib/fetchData";
+import axiosInstance from "@/lib/axiosInstance";
 
 export async function generateMetadata({ params }) {
   const slug = (await params).slug;
