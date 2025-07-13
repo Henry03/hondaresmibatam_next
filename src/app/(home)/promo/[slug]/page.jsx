@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params }) {
     const slug = (await params).slug
 
-    const promoData = await fetchItem('get', '/api/v1/promos/detail/' + slug);
+    const promoData = await safeFetch(() => axiosInstance.get('/api/v1/promos/detail/' + slug));
     if (!promoData) return notFound();
 
     return {

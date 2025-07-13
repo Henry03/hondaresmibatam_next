@@ -5,7 +5,7 @@ import CarDetailClient from "./CarDetailClient";
 export async function generateMetadata({ params }) {
   const slug = (await params).slug;
 
-  const carData = await fetchItem('get', '/api/v1/cars/detail/' + slug);
+  const carData = await safeFetch(() => axiosInstance.get('/api/v1/cars/detail/' + slug));
   if (!carData) return notFound();
 
   const imageUrl =
