@@ -37,7 +37,7 @@ export const revalidate = 60;
 export default async function PromoDetail ({params}){
     const slug = (await params).slug;
 
-    const promoData = await fetchItem('get', '/api/v1/promos/detail/' + slug);
+    const promoData = await safeFetch(() => axiosLocalInstance.get('/api/v1/promos/detail/' + slug));
 
     if(!promoData){
         return notFound();
