@@ -51,13 +51,18 @@ export default function RootNavbar () {
                     </li>
                     <li className="divider md:hidden"></li>
                     <li>
-                    <Link href="/">Home</Link>
+                        <Link href="/">Home</Link>
                     </li>
                     <li>
-                    <Link href="/mobil">Mobil</Link>
+                        <Link href="/mobil">Mobil</Link>
                     </li>
                     <li>
-                    <Link href="/aboutme">Tentang Saya</Link>
+                        <Link href="/aboutme">Tentang Saya</Link>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/6285211451178" target="_blank" rel="noopener noreferrer">
+                            Hubungi Saya
+                        </a>
                     </li>
                 </ul>
                 </div>
