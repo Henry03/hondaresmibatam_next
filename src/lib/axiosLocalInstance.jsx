@@ -2,7 +2,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie';
 
 const axiosLocalInstance = axios.create({
-  baseURL: process.env.localBaseURL
+  baseURL: process.env.NEXT_PUBLIC_LOCAL_BASE_URL
 })
 
 axiosLocalInstance.interceptors.request.use(
