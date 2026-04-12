@@ -1,4 +1,4 @@
-import axiosLocalInstance from "@/lib/axiosLocalInstance";
+import {requestServer} from "@/lib/axiosLocalInstance";
 import { safeFetch } from "@/lib/fetchData";
 import { BreadcrumbSchema, fetchItem, formatDate } from "@/lib/ServerUtils";
 import Image from "next/image";
@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params }) {
     const slug = (await params).slug
 
-    const promoData = await safeFetch(() => axiosLocalInstance.get('/api/v1/promos/detail/' + slug));
+    const promoData = await requestServer('get', '/api/v1/promos/detail/' + slug);
 
     if (!promoData) return notFound();
 
@@ -37,7 +37,7 @@ export const revalidate = 60;
 export default async function PromoDetail ({params}){
     const slug = (await params).slug;
 
-    const promoData = await safeFetch(() => axiosLocalInstance.get('/api/v1/promos/detail/' + slug));
+    const promoData = await requestServer('get', '/api/v1/promos/detail/' + slug);
 
     if(!promoData){
         return notFound();

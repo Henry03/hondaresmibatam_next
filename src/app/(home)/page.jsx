@@ -6,7 +6,7 @@ import CarSection from '@/components/CarSection';
 import CarouselSection from '@/components/CarouselSection';
 import { BreadcrumbSchema } from '@/components/Utils';
 import Link from 'next/link';
-import axiosLocalInstance from '@/lib/axiosLocalInstance';
+import {requestServer} from '@/lib/axiosLocalInstance';
 
 export const metadata = {
   title: "Honda Resmi Batam | Promo Mobil Honda & Layanan Personal",
@@ -33,11 +33,12 @@ export const metadata = {
 export const revalidate = 60;
 
 export default async function Home() {
-  const carData = await safeFetch(() => axiosLocalInstance.get('/api/v1/cars/getHomeList'));
-  const carouselData = await safeFetch(() => axiosLocalInstance.get('/api/v1/carousels/getHomeList'));
-  const promoData = await safeFetch(() => axiosLocalInstance.get('/api/v1/promos/getHomeList'));
-  const commentData = await safeFetch(() => axiosLocalInstance.get('/api/v1/comments/getHomeList'));
-
+  const carData = await requestServer('get', '/api/v1/cars/getHomeList');
+  const carouselData = await requestServer('get','/api/v1/carousels/getHomeList');
+  const promoData = await requestServer('get','/api/v1/promos/getHomeList');
+  const commentData = await requestServer('get','/api/v1/comments/getHomeList');
+  
+  console.log(carouselData)
   return (
     <>
       <BreadcrumbSchema

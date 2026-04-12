@@ -2,12 +2,12 @@ import { BreadcrumbSchema, fetchItem } from "@/lib/ServerUtils";
 import { notFound } from "next/navigation";
 import CarDetailClient from "./CarDetailClient";
 import { safeFetch } from "@/lib/fetchData";
-import axiosLocalInstance from "@/lib/axiosLocalInstance";
+import {requestServer} from "@/lib/axiosLocalInstance";
 
 export async function generateMetadata({ params }) {
   const slug = (await params).slug;
 
-  const carData = await safeFetch(() => axiosLocalInstance.get('/api/v1/cars/detail/' + slug));
+  const carData = await requestServer('get', '/api/v1/cars/detail/' + slug);
   if (!carData) return notFound();
 
   const imageUrl =
@@ -60,7 +60,7 @@ export const revalidate = 60;
 export default async function CarDetail ({ params }) {
     const slug = (await params).slug
 
-    const carData = await safeFetch(() => axiosLocalInstance.get('/api/v1/cars/detail/' + slug));
+    const carData = await requestServer('get', '/api/v1/cars/detail/' + slug);
 
     if(!carData){
         return notFound();
