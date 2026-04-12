@@ -1,13 +1,17 @@
-import { BreadcrumbSchema, fetchItem } from "@/lib/ServerUtils";
+import { BreadcrumbSchema } from "@/lib/ServerUtils";
 import { notFound } from "next/navigation";
 import CarDetailClient from "./CarDetailClient";
-import { safeFetch } from "@/lib/fetchData";
 import {requestServer} from "@/lib/axiosLocalInstance";
+import { cache } from "react";
+
+const getCarData = cache(async (slug) => {
+  return await requestServer('get', '/api/v1/cars/detail/' + slug);
+})
 
 export async function generateMetadata({ params }) {
   const slug = (await params).slug;
 
-  const carData = await requestServer('get', '/api/v1/cars/detail/' + slug);
+  const carData = await getCarData(slug);
   if (!carData) return notFound();
 
   const imageUrl =
