@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosLocalInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_LOCAL_BASE_URL
+  baseURL: process.env.LOCAL_BASE_URL
 })
 
 export const requestServer = async (method, url, token = null, data = null) => {
