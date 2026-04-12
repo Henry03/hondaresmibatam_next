@@ -64,7 +64,7 @@ export const revalidate = 60;
 export default async function CarDetail ({ params }) {
     const slug = (await params).slug
 
-    const carData = await requestServer('get', '/api/v1/cars/detail/' + slug);
+    const carData = await getCarData(slug);
 
     if(!carData){
         return notFound();
